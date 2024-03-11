@@ -1,0 +1,5 @@
+our king is on coords0
+we just moved a piece.
+if the piece is our king, then we must see if the square our king is on is under threat
+if it is not, see whether the piece that moved started on a square that was on one of the attack routes. if so, check the squares beyond the starting square.
+

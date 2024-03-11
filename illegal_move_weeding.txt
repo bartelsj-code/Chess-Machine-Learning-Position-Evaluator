@@ -1,0 +1,8 @@
+if in check, check if is double check. 
+If it is, dispose of all non king moves. 
+If not then the final position of a piece move would have to be in the squares in between the king and attacker, or on the attacker. 
+if the king moves, it must not be in check in the following position.
+
+if not in check, then we must simply check for pins. Search for own pieces along diagonals and orthagonals. If you find one, keep following that direction until you A: run into a wall, B: find a non threatening piece (either color), C: find a threat. If a threat is found, then make the move of the initial piece illegal.
+
+for all king moves, we need to get the following gamestate and check for threats on king. If found, move is illegal.

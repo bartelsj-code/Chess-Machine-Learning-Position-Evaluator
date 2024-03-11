@@ -1,0 +1,11 @@
+king is at coords 0
+piece1 moved from coords1 to coords2
+given the species of piece1, could it be attacking coords0 from coords2
+    if it could, get a list of squares that lie between coords 0 and coords2
+        if any of those squares is occupied we break and continue. if none are, we return True
+    next we check whether coords1 is in either an orthagonal or diagonal square from coord0
+    if it is:
+        get a list of squares that lie beyond coords1 in the line that coords0 and coords1 are on.
+        check any square beyond coords1 in that line of attack for an attacker with that attacking capability. break if occupant exists but is not attacker
+dict1
+key = (coords0, species of piece1) : value = {all possible squares of attack}

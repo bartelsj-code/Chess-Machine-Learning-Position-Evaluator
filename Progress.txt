@@ -1,0 +1,21 @@
+To Do:
+
+Highlight Moves, Show Possible 
+Start-up interface, and game end window
+Forwards and Backwards stuff with board
+
+Bot shit:
+Basic Minimax
+AlphaBeta Minimax
+ABMinimax with dictionary
+ABMinimax Iterative Deepening (and sorting)
+
+ABMinimax with dictionary using MCTS for heuristic
+
+Basic MCTS
+Basic 
+
+Gamestate:
+Legal move and Check detection optimization
+Insufficient Material Detection
+En-Passant notation and duplicate move notation

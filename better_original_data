@@ -1,0 +1,49 @@
+import numpy as np
+import random
+import os
+
+positions_filepath = 'large_data/positions.npy'
+bonus_data_filepath = 'large_data/metadata.npy'
+positions = np.load(positions_filepath)
+bonus_data = np.load(bonus_data_filepath)
+metadata = np.array([arr[:7] for arr in bonus_data])
+results_Y = np.array([arr[7] for arr in bonus_data])
+print(np.shape(positions))
+print(np.shape(metadata))
+print(np.shape(results_Y))
+
+def shuffle_data(pos_array, met_array, res_array):
+    print("shuffling")
+    inds =[i for i in range(len(res_array))]
+    random.shuffle(inds)
+    print("copying arrays")
+    temp_pos = np.copy(pos_array)
+    temp_met = np.copy(met_array)
+    temp_res = np.copy(res_array)
+    i = 0
+    for index in inds:
+        if i%10000 == 0:
+            print("reassigning: {}/{}".format(i, len(res_array)))
+        pos_array[i] = temp_pos[index]
+        met_array[i] = temp_met[index]
+        res_array[i] = temp_res[index]
+        i+=1
+
+shuffle_data(positions, metadata, results_Y)
+
+positions = positions[0:500000]
+metadata = metadata[0:500000]
+results_Y = results_Y[0:500000]
+
+print(np.shape(positions))
+print(np.shape(metadata))
+print(np.shape(results_Y))
+
+
+def write_files(path, pos, met, res):
+    np.save(path+"/positions.npy", pos)
+    np.save(path+"/metadata.npy", met)
+    np.save(path+"/results_Y.npy", res)
+    
+# write_files("even_files", positions, metadata, results_Y)
+write_files("orig_files_shortened", positions, metadata, results_Y)
